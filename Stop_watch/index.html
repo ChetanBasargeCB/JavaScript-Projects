@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"> </script>
+    <script>
+        let ms = 0;
+        let s = 0;
+        let min = 0;
+
+        function stop_Watch() {
+            ms++
+            document.getElementById("lbl-ms").innerHTML = `${ms}ms`;
+
+            if (ms == 999) {
+                s++;
+                ms = 0
+                document.getElementById("lbl-sec").innerHTML = `${s}sec`
+
+                if (s == 59) {
+                    min++;
+                    s = 0;
+                    document.getElementById("lbl-min").innerHTML = `${min}min`;
+                }
+            }
+        }
+
+        let loop;
+
+        function StartWatch() {
+            loop = setInterval(stop_Watch, 1)
+
+        }
+
+        function stopwatch() {
+            clearInterval(loop)
+
+
+
+        }
+
+
+
+    </script>
+</head>
+
+<body>
+
+    <div class="h-screen flex flex-col items-center justify-center space-y-6">
+        <div class="flex space-x-4 ">
+            <div class="h-14 w-16 bg-gray-200 text-center flex items-center justify-center  rounded-xl">
+                <p id="lbl-min">00min</p>
+            </div>
+
+            <div class="h-14 w-16 bg-gray-200 text-center flex items-center justify-center rounded-xl">
+                <p id="lbl-sec">00sec</p>
+            </div>
+
+            <div class="h-14 w-16 bg-gray-200 text-center flex items-center justify-center rounded-xl">
+                <p id="lbl-ms">00ms</p>
+            </div>
+
+        </div>
+
+        <div class="space-x-4">
+            <button class="px-4 py-2 bg-blue-400 text-white rounded-md hover:bg-blue-600 "
+                onclick="StartWatch()">Start</button>
+            <button class="px-4 py-2 bg-red-400 text-white rounded-md hover:bg-red-500"
+                onclick="stopwatch()">Stop</button>
+            
+        </div>
+
+    </div>
+
+</body>
+
+</html>
