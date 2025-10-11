@@ -1,0 +1,12 @@
+// Created Asysch Function 
+
+const FetchData = async ()=>{
+  const response =   fetch("https://pokeapi.co/api/v2/pokemon/pikachu")
+    .then(resp=>resp.json())
+    .then(data=>console.log(data))
+    .catch(err=>(console.log(err,"Check Url again")))
+
+
+  
+}
+FetchData()
