@@ -17,34 +17,34 @@ async function FetchData() {
 
         // Convert the response to JSON
         let data = await response.json();
-        console.log(data);
+      console.log(data)
 
-        // Access Pokémon Image Source from API & Add it into img src through DOM
+        // Access Pokemon Image Source from API & Add it into img src through DOM
         let pokeUrl = data.sprites.front_default;
         let image = document.getElementById("pokemon-img");
         image.src = pokeUrl;
 
-        // Display Pokémon Name
+        // Display Pokemon Name
         let dataName = data.name.charAt(0).toUpperCase() + data.name.slice(1);  // Capitalize first letter
         let pokeName = document.getElementById("pokemon-name");
         pokeName.textContent = dataName;
 
-        // Display Pokémon Type(s)
+        // Display Pokemon Type
         let dataType = data.types.map(typeInfo => typeInfo.type.name).join(', ');
         let pokeType = document.getElementById("pokemon-type");
         pokeType.textContent = `Type: ${dataType}`;
 
         // Hide the error message (if any)
-        document.getElementById("error-msg").style.display = "none";
+        document.getElementById("error-msg").style.display= "none";
 
-        // Show Pokémon info section
-        document.getElementById("pokemon-info").classList.remove("hidden");
+        // Show Pokemon info section
+        document.getElementById("pokemon-info").style.display="block"
 
     } catch (error) {
-        // Show error message if the Pokémon is not found or there's an issue with the fetch
+        // Show error message if the Pokemon is not found or there's an issue with the fetch
         document.getElementById("error-msg").style.display = "block";
 
-        // Hide the Pokémon info section
-        document.getElementById("pokemon-info").classList.add("hidden");
+        // Hide the Pokemon info section
+        document.getElementById("pokemon-info").style.display="hidden";
     }
 }
