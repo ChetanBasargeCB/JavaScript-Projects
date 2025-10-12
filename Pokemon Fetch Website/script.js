@@ -2,9 +2,11 @@
 
  async function FetchData(){
 
-    
+    // Accessed Inuput value
+    let Input = document.getElementById("pokemon-input").value.toLowerCase()
+
     //--- Url Added 
-    const response = await fetch("https://pokeapi.co/api/v2/pokemon/ditto")
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${Input}`)
     
 
     //-- Error Message Accessed
